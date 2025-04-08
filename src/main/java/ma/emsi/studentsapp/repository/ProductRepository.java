@@ -14,4 +14,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("select p from Product p where p.name like :x")
     List<Product> searchby(@Param("x") String mc);
+
+
+    @Query("select p from Product p where p.prix > :x")
+    List<Product> searchbyPrice(@Param("x") double price);
 }
