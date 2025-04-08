@@ -30,5 +30,12 @@ private ProductRepository productRepository;
         System.out.println("****************************************");
         List<Product> pc= productRepository.findByNameContains("ou");
 pc.forEach(System.out::println);
+        System.out.println("*******************2222*********************");
+        List<Product> pc1= productRepository.searchby("%u%");
+        pc1.forEach(System.out::println);
+
+        System.out.println("*******************33333*********************");
+        List<Product> pc3= productRepository.findByPrixGreaterThan(16);
+        pc3.forEach(System.out::println);
     }
 }
