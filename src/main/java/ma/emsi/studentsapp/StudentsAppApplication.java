@@ -19,26 +19,26 @@ private ProductRepository productRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        productRepository.save(new Product(1,"oussama",15,12));
-        productRepository.save(new Product(2,"oussama1",17,12));
-        productRepository.save(new Product(3,"oussama2",18,14));
+        productRepository.save(new Product(1,"computer",115,12));
+        productRepository.save(new Product(2,"oussama",17,12));
+        productRepository.save(new Product(3,"lap",18,141));
         List<Product> Products = productRepository.findAll();
         Products.forEach(s->System.out.println(s.toString()));
         Product s= productRepository.findById(Long.valueOf(1)).get();
-        System.out.println("****************************************");
+        System.out.println("*****************find by id ***********************");
         System.out.println(s.toString());
-        System.out.println("****************************************");
+        System.out.println("********************* search by name contians ou *******************");
         List<Product> pc= productRepository.findByNameContains("ou");
 pc.forEach(System.out::println);
-        System.out.println("*******************2222*********************");
+        System.out.println("*******************le nom contains u *********************");
         List<Product> pc1= productRepository.searchby("%u%");
         pc1.forEach(System.out::println);
 
-        System.out.println("*******************33333*********************");
+        System.out.println("******************price greater than 16*********************");
         List<Product> pc3= productRepository.findByPrixGreaterThan(16);
         pc3.forEach(System.out::println);
 
-        System.out.println("*******************33333 ++v2*********************");
+        System.out.println("*******************price greater than 16 v2 ********************");
         List<Product> pc4= productRepository.searchbyPrice(16);
         pc4.forEach(System.out::println);
 
